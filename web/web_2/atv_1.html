@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ola mundo JavaScript</title>
+</head>
+<body>
+    <!-- inclui um botao de acao -->
+    <button>clique aqui</button>
+
+</body>
+<!-- inclui um script JavaScript -->
+<script type="text/javascript">
+
+    // cria uma variavel e atribui a ela o botao
+    var button = document.querySelector('button');
+
+    // adiciona funcionalidade de clique no botao
+    button.onclick = function(){
+        // solicita o nome do usuario e armazena
+        var nome = prompt('qual e seu nome');
+        // exibe uma mensagem ao usuario contatenando o nome
+        alert('Ola ' + nome + 'e um prazer te ver aqui');
+    }
+</script>
+</html>
