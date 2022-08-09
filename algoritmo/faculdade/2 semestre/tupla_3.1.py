@@ -33,6 +33,7 @@ while True:
         if piloto[n]. upper() == busca.upper():
             print(f"piloto {busca} esta localizado em {n + 1:>2.0f} ")
             achou = True
+            break
 
     if not achou:
         print("o piloto nao foi localizado")
