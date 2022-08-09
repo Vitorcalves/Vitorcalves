@@ -20,17 +20,21 @@ for n in range(len(piloto) - 4, len(piloto)):
 
 print("carinha esta localizado em")
 
-busca = input("informe o piloto desejado:")
+while True:
+    busca = input("informe o piloto desejado:")
 
-achou = False
+    if busca == "":
+        break
 
-for n in range(len(piloto)):
-    if piloto[n]. upper() == busca.upper():
-        print(f"piloto {busca} esta localizado em {n + 1:>2.0f} ")
-        achou = True
+    achou = False
 
-if not achou:
-    print("o piloto nao foi localizado")
+    for n in range(len(piloto)):
+        if piloto[n]. upper() == busca.upper():
+            print(f"piloto {busca} esta localizado em {n + 1:>2.0f} ")
+            achou = True
+
+    if not achou:
+        print("o piloto nao foi localizado")
 
 
 
