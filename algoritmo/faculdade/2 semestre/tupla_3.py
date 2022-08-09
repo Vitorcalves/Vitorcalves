@@ -13,7 +13,7 @@ print("ters primeiros colocados")
 for n in range(0, 3):
 # for n in range(3):
 
-    print(f"{n + 1:>2.0f} - pilotos[n]")
+    print(f"{n + 1:>2.0f} - {piloto[n]}")
 
 for n in range(len(piloto) - 4, len(piloto)):
     print(f"{n + 1:>2.0f} - {piloto[n]}")
