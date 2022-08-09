@@ -1,4 +1,4 @@
-piloto = ["carinha", "outro", "popo", "weversom", "emo", "surfista", "joerlei", "cleberson", "garson", "intruso", "K.Raikkonen", "outro intruso", "popo2.0", "bot1", "bot2", "bot3", "bot4", "bot5", "bot6", "bot7"]
+piloto = ["carinha", "outro", "popo", "weversom", "emo", "surfista", "joerlei", "cleberson", "garson", "intruso" ,"K.Raikkonen", "outro intruso", "popo2.0", "bot1", "bot2", "bot3", "bot4", "bot5", "bot6", "bot7"]
 
 print(piloto)
 print("primeiro colocado",piloto[0])
@@ -11,6 +11,8 @@ for posicao, nome in enumerate(piloto):
 print("ters primeiros colocados")
 
 for n in range(0, 3):
+# for n in range(3):
+
     print(f"{n + 1:>2.0f} - pilotos[n]")
 
 for n in range(len(piloto) - 4, len(piloto)):
@@ -19,8 +21,8 @@ for n in range(len(piloto) - 4, len(piloto)):
 print("carinha esta localizado em")
 
 for n in range(len(piloto)):
-    if piloto[n] == "carinha":
-        print(f"o indice esta localizado e {n}")
+    if piloto[n] == "K.Raikkonen":
+        print(f"o piloto esta localizado em {n} no indice")
 
 
 
