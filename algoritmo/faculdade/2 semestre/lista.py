@@ -27,4 +27,11 @@ listaalunos.remove(input())
 for i in range(len(listaalunos)):
     print(f"{listaalunos[i]}")
 
+# remove aluno em um indice determindo
+
+listaalunos.pop(1)
+
+# limpa llista
+
+listaalunos.clear
 
