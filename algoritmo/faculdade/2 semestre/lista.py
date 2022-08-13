@@ -16,7 +16,7 @@ while cont <= len (listaalunos):
 
 # adicinando termos a lista
 listaalunos.append("pedro")
-listaalunos>append(input("informe o nome do aluno"))
+listaalunos.append(input("informe o nome do aluno"))
 
 listaalunos.insert(1, "eduardo")
 
