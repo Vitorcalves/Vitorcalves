@@ -1,10 +1,16 @@
 # Faça um Programa que leia um vetor de 10 caracteres, e diga quantas consoantes foram lidas. Imprima as consoantes.
+from ast import Not
+
+
 caract = list(input("insira os caracteres: ") for x in range(10))
-conso = list("")
+conso = list()
+vogais = ["A", "E", "I", "O", "U"]
 cont = 0
 for x in range(len(caract)):
-    if caract[x].upper == "A" and caract[x].upper == "E" and caract[x].upper == "I" and caract[x].upper == "O" and caract[x].upper == "U":
+    if caract[x].upper() in vogais:
+        print("")
+    else:
         conso.insert(1, caract[x])
         cont += 1
-print("as consoantes digitadas {conso}",conso)
+print("as consoantes digitadas ",conso)
 print("o total de consoantes e ", cont)
