@@ -9,7 +9,7 @@ for x in range(10):
         nota = float(input("insira as notas do aluno"))
         total = nota + total
     total = total/4
-    alunos.insert(10, total)
+    alunos.append(total)
 for y in range(len(alunos)):
     if alunos[y] >= 7:
         print(f"os alunos aprovados sao {y + 1:>2.0f}° com {alunos[y]} pontos")
