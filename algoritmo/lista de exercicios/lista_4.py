@@ -7,9 +7,7 @@ conso = list()
 vogais = ["A", "E", "I", "O", "U"]
 cont = 0
 for x in range(len(caract)):
-    if caract[x].upper() in vogais:
-        print("")
-    else:
+    if caract[x].upper() not in vogais:
         conso.insert(1, caract[x])
         cont += 1
 print("as consoantes digitadas ",conso)
