@@ -13,5 +13,5 @@ for x in range(quant):
     media = media + altura[x]
 
 media = media / quant
-
-
+for y in range(len(idade)):
+    
