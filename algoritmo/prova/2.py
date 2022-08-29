@@ -19,7 +19,7 @@ for x in range(10):
         if numeros[x] < numeros[menor]:
             menor = x
     if (numeros[x] % 2 ) == 0:
-        if par > numeros[x]:
+        if numeros[par] > numeros[x]:
             par = x
     else:
         par = -1
