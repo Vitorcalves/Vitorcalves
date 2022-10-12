@@ -1,71 +1,29 @@
-# Título <h1>
-<html>
-<head>
-	<meta charset="utf-8">
-	
-	<title>curriculo</title>
-	<link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-	<ul>
-		<li>
-			<a href="#inicio">inicio</a>
-		</li>
-		<li>
-			<a href="#formacao">formação</a>
-		</li>
-		<li>
-			<a href="#experiencia">experiencia</a>
-		</li>
-		<li>
-			<a href="#contato">contato</a>
-		</li>
-	</ul>
+# Título
 
-	<!-- seçao de inicio -->
+# Vitor Cunha
+==============
+- Estudande de Analise e Desnevolvimento de Sistemas
 
-	<section id="inicio">
-		<h2>
-			Vitor Cunha
-		</h2>
-		<p><strong>idade:</strong>21</p>
-		<p><strong>cidade:</strong>muriae-MG</p>
-	</section>
-	<!-- seçao de formaçao-->
-	<section id="formacao">
-		<h2>Formaçao</h2>
-		<p>
-			<strong>Graduaçao:</strong>Analise e desenvolvimentode sistemas - FASM
-		</p>
-		<p>
-			<strong>Minicurso:CSS </strong>Basico com o Prof. Everaldo Ribeiro - CPW - 2022
-		</p>
-		
-	</section>
+- tenho conhecimentos em:
+	- Git
+	- Python
+	- Redes
+	- JavaScript
+	- HTML
 
-	<!-- Seçao de experiencia-->
-	<section id="experiencia">
-		<h2>Experiencia</h2>
-		<p>
-			<strong>mercado lourenço</strong>estoquista
-		</p>
-	</section>
+- 📫 E-mail para contato: vitorcunhaalves@live.com
 
-	<!-- seçao de contato-->
-	<section id="contato">
-		<h2>Contato</h2>
-		<p>
-			<strong>WhatsApp</strong>
-			<a href="tel:3299999999">
-				telefone contato
-			</a>
-		</p>
-		<p>
-			<strong>WhatsApp</strong>
-			<a href="vitor@contato.com">
-				email
-			</a>
-		</p>
-	</section>
-</body>
-</html>
+
+<div align="center">
+  <img src="/monitor.svg" />
+</div>
+
+---
+
+## 🛠️ GitHub Stats
+
+<div>
+  <a href="https://github.com/vitorcalves">
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=vitorcalves&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=vitorcalves&layout=compact&langs_count=8&theme=tokyonight"/>
+<div>
