@@ -12,9 +12,6 @@
 - 📫 E-mail para contato: vitorcunhaalves@live.com
 
 
-<div align="center">
-  <img src="/monitor.svg" />
-</div>
 
 ---
 
