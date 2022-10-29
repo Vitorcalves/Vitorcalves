@@ -18,6 +18,7 @@ idade = []
 mulher = []
 media = 0
 
+# top
 
 
 while True:
