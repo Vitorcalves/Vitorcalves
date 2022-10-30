@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+.carrinho {
+    max-width:44px;
+    max-height:33px;
+    width: auto;
+    height: auto;
+}
+
 * {
     margin: 0;
     padding: 0;
