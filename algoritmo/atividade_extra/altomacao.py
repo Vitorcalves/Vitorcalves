@@ -16,3 +16,7 @@ while cont < 15:
 # pyautogui.typewrite('vca84')
 # pyautogui.press('enter')
 
+
+# 
+# sgf
+
