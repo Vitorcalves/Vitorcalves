@@ -28,6 +28,8 @@ achou = False
 
 while True:
 	print("1 – Cadastrar pessoas")
+
+	
 	print("2 – Busca jogadores por nome")
 	print("3 - Jogador mais velho (atacante)")
 	print("4 – Listagem de jogadores por número de gols (apenas os que tem gols marcados)")
