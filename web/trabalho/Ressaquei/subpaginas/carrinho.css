@@ -1,0 +1,9 @@
+.cabecalho-img {
+    height: 72px;
+}
+@media only screen and (max-device-width: 900px) {
+    /* .menu { width:100%; } */
+    }
+@media only screen and (max-device-width: 700px) {
+    /* .menu { width:400px; } */
+    }

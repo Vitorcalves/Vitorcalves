@@ -7,6 +7,24 @@
     height: auto;
 }
 
+.cabeca{
+    gap: 32px;
+    font-family: 'Righteous', cursive !important;
+    color: #FF7F32 !important;
+    font-weight: 400;
+    font-size: 18px;  
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px; 
+
+    color: #FF7F32;
+    text-decoration: none;
+} 
+
+
 * {
     margin: 0;
     padding: 0;
@@ -48,9 +66,9 @@ body {
     text-decoration: none;
 }
 
-.cabecalho-menu-item:hover {
+/* .cabecalho-menu-item:hover {
     color: black;
-}
+} */
 
 .conteudo {
     margin-bottom: 48px; 
