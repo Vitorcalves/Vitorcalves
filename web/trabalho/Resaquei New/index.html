@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title> Ressaquei </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Fontes do google -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- javascript do bootstrap -->
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- javascript do pedido -->
+    <script src="js/pedido.js" type="text/javascript"></script> 
+
+    <!-- Fontes Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Livraria Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Customizado Folha de estilo -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Inicio do topo da barra de navegação  -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-xl-5">  
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a href="" class="text-decoration-none">
+                    <img src="img/logo.png" class="logo">
+                </a>
+            </div>
+            <div class="col-lg-6 col-6 text-left">
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Procurar por">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 col-6 text-right">
+                <a href="carrinho.html" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- fim do topo da barra de navegação -->
+
+    <!-- Inicio da barra de navegação -->
+    <div class="container-fluid mb-5">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-bs-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <h6 class="m-0"> Categorias </h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                        <a href="cervejas.html" class="nav-item nav-link"> Cerveja </a>
+                        <a href="whisky.html" class="nav-item nav-link"> Whisky </a>
+                        <a href="" class="nav-item nav-link"> Vodka </a>
+                        <a href="" class="nav-item nav-link"> Vinho </a>
+                        <a href="" class="nav-item nav-link"> Champagne </a>
+                        <a href="" class="nav-item nav-link"> Conhaque </a>
+                        <a href="" class="nav-item nav-link"> Cigarros </a>
+                        <a href="" class="nav-item nav-link"> Tequila </a>
+                        <a href="" class="nav-item nav-link"> Licor </a>
+                        <a href="" class="nav-item nav-link"> Refrigerante </a>                      
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <img src="img/logo.png" class="logo">              
+                    </a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="index.html" class="nav-item nav-link active"> Inicio </a>
+                            <a href="produtos.html" class="nav-item nav-link"> Produtos </a>
+                            <a href="contato.html" class="nav-item nav-link"> Contato </a>
+                        </div>
+                    </div>
+                </nav>
+                <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="height: 410px;">
+                            <img class="img-fluid" src="img/carrosel/Jack Daniels.png" alt="Jack Daniel Cabeçalho">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3"> 10% Off </h4>
+                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4"> A mais saborosa </h3>
+                                    <a href="jack daniels desconto.html" class="btn btn-light py-2 px-3"> Comprar agora </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="height: 410px;">
+                            <img class="img-fluid" src="img/Carrosel/Glenfiddich.png" alt="Glenfiddich Cabeçalho">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3"> 10% Off </h4>
+                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4"> O melhor preço é aqui</h3>
+                                    <a href="glenfiddich desconto.html" class="btn btn-light py-2 px-3"> Comprar agora </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#header-carousel" data-bs-slide="prev">
+                        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                            <span class="carousel-control-prev-icon mb-n2"></span>
+                        </div>
+                    </a>
+                    <a class="carousel-control-next" href="#header-carousel" data-bs-slide="next">
+                        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                            <span class="carousel-control-next-icon mb-n2"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim da barra de navegação -->
+
+    <!-- Começo dos destaques -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-3"> Produtos de Qualidade </h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-3"> Entrega na cidade </h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-3"> Retirada na Distribuidora </h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-3"> Atendimento 24H</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim dos destaques -->
+
+    <!-- inicio das ofertas -->
+    <div class="container-fluid offer pt-5">
+        <div class="row px-xl-5">
+            <div class="col-md-6 pb-4">
+                <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
+                    <img src="img/ambev-1.png" alt="">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h5 class="text-uppercase text-primary mb-3"> 20% de Desconto </h5>
+                        <h1 class="mb-4 font-weight-semi-bold"> Produtos Ambev </h1>
+                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3"> Comprar agora </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pb-4">
+                <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
+                    <img src="img/ambev-1.png" alt="">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h5 class="text-uppercase text-primary mb-3"> 20% de Desconto </h5>
+                        <h1 class="mb-4 font-weight-semi-bold"> Produtos Ambev </h1>
+                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3"> Comprar agora </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim das ofertas -->
+
+    <!-- Inicio Produtos -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2"> Mais procurados </span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/cervejas/imperio gold long neck.png" alt="Cerveja Imperio Gold 210ml">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Cerveja Imperio Gold 210ml</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 4,99 </h6>
+
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="1">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="1" data-pedido="0" data-produto="Cerveja Imperio Gold 210ml" 
+                                        data-valor="4.99">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/cervejas/imperio lata pilsen.png" alt="Cerveja Pilsen Puro Malte 350ml" title="Cerveja Imperio Puro Malte 350ml">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Cerveja Imperio Puro Malte 350ml</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 3,89 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="2" data-pedido="0" data-produto="Cerveja Imperio Puro Malte 350ml" 
+                                        data-valor="3.89">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/cervejas/imperio lager.png" alt="Cerveja Imperio Lager 473ml" title="Cerveja Imperio Lager 473ml">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">  Cerveja Imperio Lager 473ml</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 4,79 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="3">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="3" data-pedido="0" data-produto=" Cerveja Imperio Lager 473ml" 
+                                        data-valor="4.79">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/cervejas/cerveja budwiser.png" alt="Cerveja Budweiser 330ml" title="Cerveja Budweiser 330ml">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Cerveja Budweiser 330ml</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 4,99 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="4">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="4" data-pedido="0" data-produto="Cerveja Budweiser 330ml" 
+                                        data-valor="4.99">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100"  src="img/Whisky/whisky white.png" alt="Whisky Escocês White Horse 1l" title="Whisky Escocês White Horse 1l">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">  Whisky Escocês White Horse 1l</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 124,99 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="5">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="5" data-pedido="0" data-produto=" Whisky Escocês White Horse 1l" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/Whisky/whisky_johnnie_walker_red.png" alt="Whisky Red Label 1l" title="Whisky Johnnie Walker Red Label">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Whisky Red Label 1l</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 99,89 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="6">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="6" data-pedido="0" data-produto="Whisky Red Label 1l " 
+                                        data-valor="99.89">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/Whisky/whisky_jack_daniels.png" alt="Whisky Jack Daniels Fire" title="Whisky Jack Daniels Fire Estados Unidos 1l">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Whisky Jack Daniels Fire</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6> R$159,00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="7">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="7" data-pedido="0" data-produto="Whisky Jack Daniels Fire" 
+                                        data-valor="159.00">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/Whisky/whisky-jack-daniels-honey.png" alt=" Whisky Jack Honey 375ml" title=" Whisky Jack Daniels Honey 375ml">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Whisky Jack Honey 375ml</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 69,20 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="8">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="8" data-pedido="0" data-produto="Whisky Jack Honey 375ml" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fim produtos -->
+
+    <!-- Inicio novos produtos -->
+    <div class="container-fluid pt-3">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2 mb-5"> Novos Produtos </span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Cerveja heineken </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6> R$4,99 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="9">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="9" data-pedido="0" data-produto="Cerveja heineken" 
+                                        data-valor="16.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="10">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="10" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="11">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="11" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="12">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="12" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="13">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="13" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="14">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="14" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="15">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="15" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/ambevama.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3"> Ambevama </h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>R$ 123.00 </h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="d-flex btn-group justify-content-between align-items-center">
+                            <input type="number" class="form-control form-control-sm quantidade"value="1" min="1" data-codigo-quantidade="16">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-incluir-remover"
+                                        data-codigo="16" data-pedido="0" data-produto="Hamburguer artesanal 1" 
+                                        data-valor="14.90">
+                                    Incluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Fim novos produtos  -->
+
+    <!-- botão para finalizar o pedido -->
+    <div class="mt-4 text-center">
+        <button class="btn btn-lg btn-enviar btn-enviar-pedido">
+            Enviar pedido
+        </button>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="modal-pedido">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enviar pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-pedido-msg">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-enviar" id="btn-enviar-pedido">
+                        Enviar pedido pelo WhatsApp
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor Start Da pra colocar as logos das marcas -->
+    <div class="container-fluid py-5">
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="owl-carousel vendor-carousel">
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora itaipava.png" alt=" Fornecedora Itaipava">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora skol.png" alt="Fornecedora Skol">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora budweiser.png" alt="Fornecedora Budweiser">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora imperio.png" alt="Fornecedora Imperio">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora corona.png" alt="Fornecedora Corona.png">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora Johnnie Walker.png" alt="Fornecedora Johnnie Walker">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora Jack Daniels.png" alt="Fornecedora Jack Daniels">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/fornecedores/fornecedora White Horse.png" alt="Fornecedora White Horse">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Final Marcas -->
+
+    <!-- Inicio do rodape  -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a href="" class="text-decoration-none">
+                    <img src="img/logo.png" class="logo">
+                </a>
+                <p> Somos uma Distribuidora de bebidas e temos um sistema para o seu negocio </p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i> 123 Centro, Muriae, MG </p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i> ressaquei@gmail.com </p>
+               
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 pt-3 mb-5">
+                        <h5 class="font-weight-bold text-dark mb-4"> Links Rápidos </h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i> Inicio </a>
+                            <a class="text-dark mb-2" href="carrinho.html"><i class="fa fa-angle-right mr-2"></i> Carrinho de compras </a>
+                            <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i> Finalizar compra  </a>
+                            <a class="text-dark" href="contato.html"><i class="fa fa-angle-right mr-2"></i> Página de contato </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 px-xl-0 text-center text-md-right">
+                        <div style='text-align:center'>
+                            <br>
+                            <p>Dias de funcionamento
+                            Segunda a Sábado
+                            </p>
+                            <p align-itens="right">
+                            <b>Dúvidas?</b><br>
+                            Ligue para a Central de
+                            Atendimento:
+                            </p>
+                            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i> +55 32 995484512 </p>
+                            <br>
+                            <br>
+                            <img class="img-fluid" src="img/payments.png" alt="">
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Ressaquei</a>.Todos os direitos reservados. Designado
+                    por
+                    <a class="text-dark font-weight-semi-bold" href="#"> Desenvolvedores </a><br>
+                    Distribuido por <a href="#" target="_blank"> Ressaquei </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Final do Rodape -->
+
+    <!-- Botão de voltar ao topo -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>         <!-- Adiciona o carrosel dos vendedores -->
+    <script src="lib/easing/easing.min.js"></script>        <!-- Funcionalidade do botão de voltar ao topo -->
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>      <!-- Carrosel dos vendedores -->
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
