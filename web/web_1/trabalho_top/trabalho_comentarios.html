@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- teste de aniamacao -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- indica o formato de codificação definido por caracteres que estamos  -->
+  <meta charset="UTF-8">
+
+  <!-- define como o site vai ser visualizado em diferentes dispositivos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- importa o CSS para o HTML -->
+  <link rel="stylesheet" href="style_comentado.css">
+
+  <!-- importa icones bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+  <!-- importa icones site -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- importa a ultima versão CSS compilada e minificada do bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+  <!-- importa a ultima versão JavaScript compilada e minificada do bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+  <!-- Tema opcional -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+
+  <!-- link para importação das fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+
+
+
+  <!-- imagens de fundo -->
+  <link rel="stylesheet" type="text/css" href="imagens/imagem_hoje.png">
+  <!-- titulo da pagina -->
+  <title>Jr Barber Shop</title>
+</head>
+
+<body>
+  <!-- barra de navegação ultilizando modelo do bootstrap -->
+  <div id="nav-container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a id="nome" class="navbar-brand" href="#">
+          <img id="logo" src="imagens/logo_max_cort.png" alt="Jr Barber Shop">Jr Barber Shop
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#agendamentos">Agendamentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sobre_nos">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portifolio">Trabalhos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#produtos">Produtos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <!-- botao whatsapp -->
+  <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5599111112222" target="_blank">
+    <i class="fa fa-whatsapp"></i>
+  </a>
+
+  <!-- class do bootstrap para texto em maiusculo -->
+
+  <!-- animaçao de entrada de texto -->
+  <h1 class="text-uppercase animate__animated animate__fadeInLeft "> JR BARBER SHOP </h1>
+
+
+  <h2 class="animate__animated animate__fadeInDown">Mais que uma Barbearia</h2>
+
+  <p class="frase animate__animated animate__fadeInLeft">
+
+    A JR Barber Shop se encontra á 3 anos no mercado, prestando não apenas simples cortes de cabelos, mas elevando a
+    auto-estima de nossos clientes, construindo networkings e colencioanando bons momentos
+
+  </p>
+
+  <h2 class="edit" id="sobre_nos">Sobre nos</h2>
+
+  <p> Nos somos uma barbearia que já esta no mercado a mais de 3 anos atendento com exelencia nossos clientes</p>
+
+
+  <h2 class="edit" id="portifolio">Cortes</h2>
+
+  <h3>Alguns dos nossos trabalhos</h3>
+
+  <!-- ferramenta bootstrap para realizar carrocel com imagens -->
+
+  <div id="carrosel">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="imagens/WhatsApp Image 2022-05-24 at 05.38.20 (1).jpeg" class="d-block w-100" alt="cortes">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="imagens/WhatsApp Image 2022-05-24 at 05.38.20 (2).jpeg" class="d-block w-100" alt="cortes">
+        </div>
+        <div class="carousel-item">
+          <img src="imagens/WhatsApp Image 2022-05-24 at 05.38.20 (3).jpeg" class="d-block w-100" alt="cortes">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </div>
+
+  <h2 class="edit" id="produtos">Produtos</h2>
+
+  <p>Nos trabalhamos com os mais variaveis tipos de produtos para atender a tudos</p>
+
+  <div id="info">
+    <h3>Pomada Modeladora Urban Men IPA</h3>
+    <p>Pomada modeladora para cabelos, fixação forte e flexível, efeito molhado, sem corantes, estiliza o penteador e
+      modela com aspecto natural.</p>
+    <h3>Minoxidil Original 5% </h3>
+    <p>Trata-se de uma loção capilar para problemas de queda de cabelo relacionados à calvície. O Minoxidil ajuda a
+      revitalizar a raiz do cabelo e a normalizar o ciclo do folículo, prolongando a fase de crescimento. O produto
+      também tem a função de estimular a vascularização do couro cabeludo, permitindo oxigenação da área.</p>
+    <img src="imagens/minox.jpg">
+  </div>
+
+  <h2 class="edit" id="agendamentos"> Agendamento</h2>
+
+  <p>O agendamento pode ser efetuado pelo Whatsapp, que é acessado pelo icone ao lado</p>
+
+
+
+  <p>
+    <!-- importa o icone de geolocalizacao -->
+    <a href="https://goo.gl/maps/TwcCAb7ydwys8h5D8" target="_blank">
+      <i class="bi bi-geo-alt-fill"></i>
+    </a>
+
+  </p>
+
+  <p>
+    Rua Italia, Número 281, Bairro São Cristóvão, Muriaé-MG
+  </p>
+</body>
+</html>
+
+
