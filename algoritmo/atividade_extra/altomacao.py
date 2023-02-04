@@ -12,8 +12,8 @@ while cont < 15:
     pyautogui.typewrite ('EU ESTOU PUTO COM VC')
     pyautogui.press('enter')
     cont += 1
-    
-# pyautogui.typewrite('vca84')
+
+# pyautogui.typewrite('')
 # pyautogui.press('enter')
 
 
