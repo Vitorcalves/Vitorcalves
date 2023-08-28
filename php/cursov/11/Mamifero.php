@@ -16,6 +16,13 @@
         {
             echo "<p>Som de mamifero</p>";
         }  
+
+        public function getCorPelo(){
+            return $this->corPelo;
+        }
+        public function setCorPelo($c){
+            $this->corPelo = $c;
+        }
         
     }
 ?>
