@@ -4,6 +4,8 @@
 
 - tenho conhecimentos em:
 	- Git
+ 	- PHP
+	- Docker  
 	- Python
 	- Redes
 	- JavaScript
