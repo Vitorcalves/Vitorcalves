@@ -1,2 +1,0 @@
-https://git-scm.com/book/pt-br/v2/Fundamentos-de-Git-Vendo-o-hist%C3%B3rico-de-Commits
-comandos git
