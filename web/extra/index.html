@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    table {
+        width: 300px;
+        height: 300px;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+        border-top: 0!important;
+        border-left: 0!important;
+
+    }
+    tr {
+        padding: 10px;
+        border-top: 0;
+        border-left: 0;
+
+    }
+    
+
+</style>
+
+    <table border="3">
+        <tr>
+            <td> <button onclick="changeColor(this)">teste</button> </td>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+        </tr>
+        <tr>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+        </tr>
+        <tr>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+        </tr>
+    </table>
+
+    <script>
+        function changeColor(button) {
+            button.textContent = "Novo texto";
+        }
+    </script>
+</body>
+</html>
