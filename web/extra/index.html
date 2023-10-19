@@ -30,26 +30,87 @@
 
     <table border="3">
         <tr>
-            <td> <button onclick="changeColor(this)">teste</button> </td>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button id="0" onclick="clique()">teste</button> </td>
+            <td> <button id="1" onclick="clique()">Click Me!</button> </td>
+            <td> <button id="2" onclick="clique()">Click Me!</button> </td>
         </tr>
         <tr>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button id="3" onclick="clique()">Click Me!</button> </td>
+            <td> <button id="4" onclick="clique()">Click Me!</button> </td>
+            <td> <button id="5" onclick="clique()">Click Me!</button> </td>
         </tr>
         <tr>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
-            <td> <button onclick="changeColor(this)">Click Me!</button> </td>
+            <td> <button id="6" onclick="clique()">Click Me!</button> </td>
+            <td> <button id="7" onclick="clique()">Click Me!</button> </td>
+            <td> <button id="8" onclick="clique()">Click Me!</button> </td>
         </tr>
     </table>
 
     <script>
-        function changeColor(button) {
-            button.textContent = "Novo texto";
+        var valores = ["", "", "", "", "", "", "", "", ""];
+        var rodada = 0;
+        var id = 0;
+        function clique1(button) {
+            if (rodada%2==0) {
+                button.textContent = "X";
+            } else {
+                button.textContent = "O";
+            }
+            rodada++;
         }
+
+        function clique() {
+            id = document.getElementById(event.target.id).id;
+            // Verificar se o botão já foi clicado
+            if (valores[id] == "") {
+                if (rodada % 2 == 0) {
+                    document.getElementById(id).innerText = "X";
+                    valores[id] = "X";
+                } else {
+                    document.getElementById(id).innerText = "O";
+                    valores[id] = "O";
+                }
+                rodada++;
+                // Verificar se há um vencedor
+                verificarVencedor();
+            }
+        }
+
+        function verificarVencedor() {
+            // Definir as possíveis combinações vencedoras
+            var combinacoes = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+            // Percorrer as combinações e comparar com os valores
+            
+                    // Reiniciar o jogo
+                    reiniciar();
+                    break;
+                }
+            }
+            // Verificar se houve empate
+            if (rodada == 9) {
+                // Mostrar uma mensagem de empate
+                alert("O jogo terminou em empate!");
+                // Reiniciar o jogo
+                reiniciar();
+            }
+        }
+
+
+        
     </script>
+    <h1 id="id1">My Heading 1</h1>
+
+    <button id="15" type="button" 
+    onclick="document.getElementById('5').style.color = 'red'">
+    Click Me!</button>
 </body>
 </html>
