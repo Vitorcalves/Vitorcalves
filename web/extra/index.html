@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jogo da velha</title>
 </head>
 <body>
 <style>
@@ -89,9 +89,13 @@
                 [2, 4, 6]
             ];
             // Percorrer as combinações e comparar com os valores
+            for (let i = 0; i < combinacoes.length; i++){
+                if (valores[combinacoes[i][0]] != "" && valores[combinacoes[i][0]] == valores[combinacoes[i][1]] && valores[combinacoes[i][1]] == valores[combinacoes[i][2]]) {
+                    // Mostrar uma mensagem de vitória
+                    alert(`O jogador ${valores[[i][0]]} venceu!`);
             
                     // Reiniciar o jogo
-                    reiniciar();
+                    window.location.reload();
                     break;
                 }
             }
@@ -100,17 +104,12 @@
                 // Mostrar uma mensagem de empate
                 alert("O jogo terminou em empate!");
                 // Reiniciar o jogo
-                reiniciar();
+                window.location.reload();
             }
         }
 
-
         
     </script>
-    <h1 id="id1">My Heading 1</h1>
-
-    <button id="15" type="button" 
-    onclick="document.getElementById('5').style.color = 'red'">
-    Click Me!</button>
+    
 </body>
 </html>
