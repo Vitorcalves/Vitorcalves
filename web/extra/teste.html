@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jogo da velha</title>
 </head>
+
 <body>
-<style>
+    <style>
     table {
         width: 300px;
         height: 300px;
@@ -16,17 +18,16 @@
         padding: 10px;
         border-top: 0!important;
         border-left: 0!important;
-
+    
     }
     tr {
         padding: 10px;
         border-top: 0;
         border-left: 0;
-
-    }
     
-
+    }
 </style>
+    
 
     <table border="3">
         <tr>
@@ -47,36 +48,41 @@
     </table>
 
     <script>
-        var valor = ["", "", "", "", "", "", "", "", ""];
+        var jogadorX = []
+        var jogadorO = []
         var rodada = 0;
         var id = 0;
-        // function clique1(button) {
-        //     if (rodada%2==0) {
-        //         button.textContent = "X";
-        //     } else {
-        //         button.textContent = "O";
-        //     }
-        //     rodada++;
-        // }
 
         function clique() {
-            let id = document.getElementById(event.target.id).id;
+            let id = +document.getElementById(event.target.id).id;
+            if (rodada == 0) {
+                document.getElementById(id).innerText = "X";
+                jogadorX.push(id);
+                rodada++
+            }
             // Verificar se o botão já foi clicado
-            if (valor[id] == "") {
-                if (rodada % 2 == 0) {
-                    document.getElementById(id).innerText = "X";
-                    valor[id] = "X";
-                } else {
-                    document.getElementById(id).innerText = "O";
-                    valor[id] = "O";
+            for (let i = 0; i < jogadorX.length; i++) {
+                if (jogadorX[i] == id || jogadorO[i] == id) {
+                    return; // Sair da função sem fazer nada
                 }
+            }
+            if (rodada == 0) {
+                document.getElementById(id).innerText = "X";
+                jogadorX.push(id);
                 rodada++;
-                // Verificar se há um vencedor
-                verificarVencedor();
+            } else if (rodada % 2 == 0) {
+                document.getElementById(id).innerText = "X";
+                jogadorX.push(id);
+                rodada++;
+                verificarVencedor("X");
+            } else {
+                document.getElementById(id).innerText = "O";
+                jogadorO.push(id);
+                rodada++;
+                verificarVencedor("O");
             }
         }
-
-        function verificarVencedor() {
+        function verificarVencedor(jogador) {
             // Definir as possíveis combinações vencedoras
             var comb = [
                 [0, 1, 2],
@@ -89,17 +95,26 @@
                 [2, 4, 6]
             ];
             // Percorrer as combinações e comparar com os valores
-            for (let i = 0; i < comb.length; i++){
-
-                if (valor[comb[i][0]] != "" && valor[comb[i][0]] == valor[comb[i][1]] && valor[comb[i][1]] == valor[comb[i][2]]) {
-                    // Mostrar uma mensagem de vitória
-                    alert(`O jogador ${valor[comb[i][0]]} venceu!`);
-            
-                    // Reiniciar o jogo
-                    window.location.reload();
-                    break;
+            if (rodada >= 5){
+                if(jogador == "X"){
+                    for (let i = 0; i < comb.length; i++) {
+                        if (jogadorX.includes(comb[i][0]) && jogadorX.includes(comb[i][1]) && jogadorX.includes(comb[i][2])) {   
+                            alert(`O jogador ${jogador} venceu!`);
+                            window.location.reload();
+                            break;
+                        }
+                    }
+                }else{
+                    for (let i = 0; i < comb.length; i++) {
+                        if (jogadorO.includes(comb[i][0]) && jogadorO.includes(comb[i][1]) && jogadorO.includes(comb[i][2])) {  
+                            alert(`O jogador ${jogador} venceu!`);
+                            window.location.reload();
+                            break;
+                        }
+                    }
                 }
             }
+            
             // Verificar se houve empate
             if (rodada == 9) {
                 // Mostrar uma mensagem de empate
@@ -108,8 +123,9 @@
                 window.location.reload();
             }
         }
- 
+
     </script>
-    
+
 </body>
+
 </html>
