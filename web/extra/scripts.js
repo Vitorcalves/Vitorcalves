@@ -3,8 +3,9 @@ var jogadorO = [];
 var rodada = 0;
 var id = 0;
 
-function clique() {
-    let id = +document.getElementById(event.target.id).id;
+function clique(botao) {
+    let id = +botao.id;
+    console.log(id);
     if (rodada == 0) {
         document.getElementById(id).innerText = "X";
         jogadorX.push(id);
