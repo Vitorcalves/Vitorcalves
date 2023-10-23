@@ -2,7 +2,7 @@ var ganhador = false;
 var rodada = 0;
 const alert = document.getElementById('alert');
 const idForm = document.getElementById('form');
-
+const btn = document.querySelector("#send");
 
 class Jogador {
     constructor(nome, jogadas, vitorias) {
