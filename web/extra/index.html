@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <script defer src="scripts.js"></script>
+        <script  src="scripts.js" defer></script>
    
     
     <title>jogo da velha</title>
@@ -15,9 +15,31 @@
     <div class="titulo">
         <h1>Jogo da Velha</h1>
     </div>
+    <div>
+        <form action="">
+            <input type="text" name="name" id="nome01" placeholder="digite seu nome">
+            <input type="text" name="name" id="nome02" placeholder="digite seu nome">
+            <input type="submit" id="send" value="Enviar">
+        </form>
+    </div>
+
+        
+
+    <div class="jogadores">
+        <table class="placar">
+            <tr>
+                <td id="jogador1">X</td>
+                <td id="jogador2">O</td>
+            </tr>
+            <tr>
+                <td class="jogador1" id="placar1">0</td>
+                <td class="jogador2" id="placar2">0</td>
+            </tr>
+        </table>
+    </div>
     <div class="container">
         
-        <table>
+        <table class="game">
             <tr>
                 <td class="superior esquerda"> <button class="campo" id="0" onclick="clique(this)"></button> </td>
                 <td class="superior"> <button class="campo" id="1" onclick="clique(this)"></button> </td>

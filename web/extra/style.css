@@ -1,4 +1,4 @@
-table {
+.game {
     width: 100px;
     height: 100px;
     border-collapse: collapse;
@@ -46,12 +46,12 @@ body {
 .inferior {
     border-bottom: none;
 }
-tr {
+/* tr {
     padding: 10px;
     border-top: 0;
     border-left: 0;
 
-}
+} */
 
 .mensagem {
     padding-top: 50px;
@@ -76,3 +76,30 @@ tr {
     cursor: pointer;
 
 }
+.placar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    border-spacing: 10px;
+}
+.jogadores {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    
+}
+.jogador1 {
+    color: rgb(255, 0, 0);
+    
+}
+.jogador2 {
+    color: rgb(0, 0, 255);
+}
+.jogador {
+    margin-bottom: 20px;
+
+}
+
