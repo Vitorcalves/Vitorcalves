@@ -64,9 +64,9 @@ body {
     font-size: 30px;
     font-weight: bold;
 }
-.close {
+.close, .restart {
 
-    background-color: rgb(255, 0, 0);
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,6 +74,13 @@ body {
     color: rgb(243, 252, 241);
     border: none;
     cursor: pointer;
+
+}
+.close{
+    background-color: rgb(255, 0, 0);
+}
+.restart {
+    background-color: rgb(0, 0, 255);
 
 }
 .placar {
@@ -107,5 +114,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+
+    margin: 0;
+}
+.form input {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
 }

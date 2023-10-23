@@ -21,11 +21,19 @@ class Jogador {
 let X = new Jogador("X", [], 0);
 let O = new Jogador("O", [], 0);
 
-
+//function para pegar os nomes dos jogadores
 btn.addEventListener('click', function(e) {
     e.preventDefault();
     const nome = document.querySelector("#nome01");
     const nome02 = document.querySelector("#nome02");
+    //verificar se os campos estão vazios
+    if(nome.value == "" || nome02.value == ""){
+        X.nome = "X";
+        O.nome = "O";
+        document.getElementById('jogador1').innerText = X["nome"];
+        document.getElementById('jogador2').innerText = O["nome"];
+        return;
+    }   
     X.nome = nome.value;
     O.nome = nome02.value;
     document.getElementById('jogador1').innerText = X["nome"];
@@ -36,7 +44,6 @@ btn.addEventListener('click', function(e) {
 // Função para aceitar o clique do botão
 function clique(botao) {
     let id = +botao.id;
-    console.log(id);
     // Verificar se o botão já foi clicado ou se já tem um ganhador
     for (let i = 0; i < X.jogadas.length; i++) {
         if (X.jogadas[i] == id || O.jogadas[i] == id || ganhador == true) {
@@ -86,7 +93,6 @@ function verificarVencedor(jogador) {
                 ganhador = true;
                 mensagemAlerta(`O Jogador ${jogador.nome} Venceu!`);
                 jogador.ganhar();
-                console.log(jogador.vitorias);
                 break;
             }
         }
@@ -98,6 +104,7 @@ function verificarVencedor(jogador) {
         mensagemAlerta("O jogo terminou em empate!");
     }
 }
+// Função para reiniciar o jogo
 function novaRodada(){
     rodada = 0;
     ganhador = false;
@@ -105,38 +112,28 @@ function novaRodada(){
     O.jogadas = [];
         document.getElementById('placar1').innerText = X.vitorias;
         document.getElementById('placar2').innerText = O.vitorias;
-        idDiv.innerHTML = '';
+        alert.innerHTML = '';
+
+    for(let i = 0; i < 9; i++){
+        document.getElementById(i).innerText = "";
+    }
+}
+function reiniciar(){
+    rodada = 0;
+    ganhador = false;
+    X.jogadas = [];
+    O.jogadas = [];
+    X.vitorias = 0;
+    O.vitorias = 0;
+    document.getElementById('placar1').innerText = X.vitorias;
+    document.getElementById('placar2').innerText = O.vitorias;
+    alert.innerHTML = '';
 
     for(let i = 0; i < 9; i++){
         document.getElementById(i).innerText = "";
     }
 }
 
-function abrirFormulario() {
-    idForm.innerHTML = '';
-    const btn = document.querySelector("#send");
-    const escrever = document.createElement('div');
-    escrever.innerHTML = [       
-        '<form action="">',
-            '<input type="text" name="name" id="nome01"', 'placeholder="digite seu nome">',
-            '<input type="text" name="name" id="nome02"', 'placeholder="digite seu nome">',
-            '<input type="submit" id="send" value="Trocar" onclick="fecharFormulario()">',
-        '</form>'
-
-    ].join('');
-    idForm.append(escrever);
-
-}
-function fecharFormulario() {
-    idForm.innerHTML = '';
-    const escrever = document.createElement('div');
-    escrever.innerHTML = [       
-        '<button class="form" id="openForm" onclick="abrirFormulario()">Trocar nomes</button>'
-
-    ].join('');
-    idForm.append(escrever);
-
-}
 // Função para mostrar uma mensagem de vitoria ou empate
 function mensagemAlerta(message) {
     const escrever = document.createElement('div');
@@ -144,8 +141,8 @@ function mensagemAlerta(message) {
         
         '<div class="mensagem">',
         `   <div>${message}</div>`,
-        '   <button class="close" onclick="novaRodada();">Nova Rodada</button>',
-        '   <button class="close" onclick="window.location.reload();">Reiniciar</button>',
+        '   <button class="restart" onclick="novaRodada();">Nova Rodada</button>',
+        '   <button class="close" onclick="reiniciar();">Reiniciar</button>',
         '</div>'
     ].join('');
     alert.append(escrever);
