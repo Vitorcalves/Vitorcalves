@@ -10,12 +10,22 @@ table {
     justify-content: center;
     align-items: center;
 }
-td {
-    border: 1px solid black;
-    
+body {
+    background-color: rgb(243, 252, 241);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.titulo {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
 }
 .campo {
-    background-color: white;
+    background-color: rgb(158, 248, 206);
+    
     width: 100px;
     height: 100px;
     border: none;
@@ -40,5 +50,29 @@ tr {
     padding: 10px;
     border-top: 0;
     border-left: 0;
+
+}
+
+.mensagem {
+    padding-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.close {
+
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(243, 252, 241);
+    border: none;
+    cursor: pointer;
 
 }

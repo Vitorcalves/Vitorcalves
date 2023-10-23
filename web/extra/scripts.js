@@ -1,20 +1,16 @@
 var jogadorX = [];
 var jogadorO = [];
 var rodada = 0;
-var id = 0;
-
+var ganhador = false;
+const idDiv = document.getElementById('alert')
+// Função para aceitar o clique do botão
 function clique(botao) {
     let id = +botao.id;
     console.log(id);
-    if (rodada == 0) {
-        document.getElementById(id).innerText = "X";
-        jogadorX.push(id);
-        rodada++;
-    }
-    // Verificar se o botão já foi clicado
+    // Verificar se o botão já foi clicado ou se já tem um ganhador
     for (let i = 0; i < jogadorX.length; i++) {
-        if (jogadorX[i] == id || jogadorO[i] == id) {
-            return; // Sair da função sem fazer nada
+        if (jogadorX[i] == id || jogadorO[i] == id || ganhador == true) {
+            return;
         }
     }
     if (rodada == 0) {
@@ -33,9 +29,10 @@ function clique(botao) {
         verificarVencedor("O");
     }
 }
+// Função para verificar se houve um vencedor
 function verificarVencedor(jogador) {
     // Definir as possíveis combinações vencedoras
-    var comb = [
+    const comb = [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8],
@@ -45,32 +42,38 @@ function verificarVencedor(jogador) {
         [0, 4, 8],
         [2, 4, 6]
     ];
-    // Percorrer as combinações e comparar com os valores
+    // Percorre as combinações e compara com os valores
     if (rodada >= 5){
         if(jogador == "X"){
-            for (let i = 0; i < comb.length; i++) {
-                if (jogadorX.includes(comb[i][0]) && jogadorX.includes(comb[i][1]) && jogadorX.includes(comb[i][2])) {   
-                    alert(`O jogador ${jogador} venceu!`);
-                    window.location.reload();
-                    break;
-                }
-            }
+            correrLista(jogadorX);
         }else{
-            for (let i = 0; i < comb.length; i++) {
-                if (jogadorO.includes(comb[i][0]) && jogadorO.includes(comb[i][1]) && jogadorO.includes(comb[i][2])) {  
-                    alert(`O jogador ${jogador} venceu!`);
-                    window.location.reload();
-                    break;
-                }
+            correrLista(jogadorO);
+        }
+    }
+    function correrLista(lista){
+        for (let i = 0; i < comb.length; i++) {
+            if (lista.includes(comb[i][0]) && lista.includes(comb[i][1]) && lista.includes(comb[i][2])) {  
+                ganhador = true;
+                mensagemAlerta(`O Jogador ${jogador} Venceu!`);
+                break;
             }
         }
     }
     
     // Verificar se houve empate
-    if (rodada == 9) {
+    if (rodada == 9 && ganhador == false) {
         // Mostrar uma mensagem de empate
-        alert("O jogo terminou em empate!");
-        // Reiniciar o jogo
-        window.location.reload();
+        mensagemAlerta("O jogo terminou em empate!");
     }
+}
+// Função para mostrar uma mensagem de vitoria ou empate
+function mensagemAlerta(message) {
+    const escrever = document.createElement('div');
+    escrever.innerHTML = [
+        `<div class="mensagem">`,
+        `   <div>${message}</div>`,
+        '   <button class="close" onclick="window.location.reload();">Reiniciar</button>',
+        '</div>'
+    ].join('');
+    idDiv.append(escrever);
 }

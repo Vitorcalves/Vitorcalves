@@ -9,61 +9,134 @@
 
 <body>
     <style>
-    table {
-        width: 300px;
-        height: 300px;
-        border-collapse: collapse;
-    }
-    td {
-        padding: 10px;
-        border-top: 0!important;
-        border-left: 0!important;
-    
-    }
-    tr {
-        padding: 10px;
-        border-top: 0;
-        border-left: 0;
-    
-    }
-</style>
-    
+        table {
+            width: 100px;
+            height: 100px;
+            border-collapse: collapse;
+        }
 
-    <table border="3">
-        <tr>
-            <td> <button id="0" onclick="clique()">teste</button> </td>
-            <td> <button id="1" onclick="clique()">Click Me!</button> </td>
-            <td> <button id="2" onclick="clique()">Click Me!</button> </td>
-        </tr>
-        <tr>
-            <td> <button id="3" onclick="clique()">Click Me!</button> </td>
-            <td> <button id="4" onclick="clique()">Click Me!</button> </td>
-            <td> <button id="5" onclick="clique()">Click Me!</button> </td>
-        </tr>
-        <tr>
-            <td> <button id="6" onclick="clique()">Click Me!</button> </td>
-            <td> <button id="7" onclick="clique()">Click Me!</button> </td>
-            <td> <button id="8" onclick="clique()">Click Me!</button> </td>
-        </tr>
-    </table>
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        body {
+            background-color: rgb(243, 252, 241);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .titulo {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .campo {
+            background-color: rgb(158, 248, 206);
+
+            width: 100px;
+            height: 100px;
+            border: none;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .esquerda {
+            border-left: none;
+        }
+
+        .direita {
+            border-right: none;
+        }
+
+        .superior {
+            border-top: none;
+        }
+
+        .inferior {
+            border-bottom: none;
+        }
+
+        tr {
+            padding: 10px;
+            border-top: 0;
+            border-left: 0;
+
+        }
+
+        .mensagem {
+            padding-top: 50px;
+            text-align: center;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .close {
+
+            background-color: rgb(255, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: rgb(243, 252, 241);
+            border: none;
+            cursor: pointer;
+
+        }
+    </style>
+
+
+    <div class="titulo">
+        <h1>Jogo da Velha</h1>
+    </div>
+    <div class="container">
+
+        <table>
+            <tr>
+                <td class="superior esquerda"> <button class="campo" id="0" onclick="clique(this)"></button> </td>
+                <td class="superior"> <button class="campo" id="1" onclick="clique(this)"></button> </td>
+                <td class="superior direita"> <button class="campo" id="2" onclick="clique(this)"></button> </td>
+            </tr>
+            <tr>
+                <td class="esquerda"> <button class="campo" id="3" onclick="clique(this)"></button> </td>
+                <td class=""> <button class="campo" id="4" onclick="clique(this)"></button> </td>
+                <td class="direita"> <button class="campo" id="5" onclick="clique(this)"></button> </td>
+            </tr>
+            <tr>
+                <td class="inferior esquerda"> <button class="campo" id="6" onclick="clique(this)"></button> </td>
+                <td class="inferior"> <button class="campo" id="7" onclick="clique(this)"></button> </td>
+                <td class="inferior direita"> <button class="campo" id="8" onclick="clique(this)"></button> </td>
+            </tr>
+        </table>
+    </div>
+    <div id="alert"></div>
     <script>
-        var jogadorX = []
-        var jogadorO = []
+        var jogadorX = [];
+        var jogadorO = [];
         var rodada = 0;
-        var id = 0;
-
-        function clique() {
-            let id = +document.getElementById(event.target.id).id;
-            if (rodada == 0) {
-                document.getElementById(id).innerText = "X";
-                jogadorX.push(id);
-                rodada++
-            }
-            // Verificar se o botão já foi clicado
+        var ganhador = false;
+        const idDiv = document.getElementById('alert')
+        // Função para aceitar o clique do botão
+        function clique(botao) {
+            let id = +botao.id;
+            console.log(id);
+            // Verificar se o botão já foi clicado ou se já tem um ganhador
             for (let i = 0; i < jogadorX.length; i++) {
-                if (jogadorX[i] == id || jogadorO[i] == id) {
-                    return; // Sair da função sem fazer nada
+                if (jogadorX[i] == id || jogadorO[i] == id || ganhador == true) {
+                    return;
                 }
             }
             if (rodada == 0) {
@@ -82,9 +155,10 @@
                 verificarVencedor("O");
             }
         }
+        // Função para verificar se houve um vencedor
         function verificarVencedor(jogador) {
             // Definir as possíveis combinações vencedoras
-            var comb = [
+            const comb = [
                 [0, 1, 2],
                 [3, 4, 5],
                 [6, 7, 8],
@@ -94,34 +168,40 @@
                 [0, 4, 8],
                 [2, 4, 6]
             ];
-            // Percorrer as combinações e comparar com os valores
-            if (rodada >= 5){
-                if(jogador == "X"){
-                    for (let i = 0; i < comb.length; i++) {
-                        if (jogadorX.includes(comb[i][0]) && jogadorX.includes(comb[i][1]) && jogadorX.includes(comb[i][2])) {   
-                            alert(`O jogador ${jogador} venceu!`);
-                            window.location.reload();
-                            break;
-                        }
-                    }
-                }else{
-                    for (let i = 0; i < comb.length; i++) {
-                        if (jogadorO.includes(comb[i][0]) && jogadorO.includes(comb[i][1]) && jogadorO.includes(comb[i][2])) {  
-                            alert(`O jogador ${jogador} venceu!`);
-                            window.location.reload();
-                            break;
-                        }
+            // Percorre as combinações e compara com os valores
+            if (rodada >= 5) {
+                if (jogador == "X") {
+                    correrLista(jogadorX);
+                } else {
+                    correrLista(jogadorO);
+                }
+            }
+            function correrLista(lista) {
+                for (let i = 0; i < comb.length; i++) {
+                    if (lista.includes(comb[i][0]) && lista.includes(comb[i][1]) && lista.includes(comb[i][2])) {
+                        ganhador = true;
+                        mensagemAlerta(`O Jogador ${jogador} Venceu!`);
+                        break;
                     }
                 }
             }
-            
+
             // Verificar se houve empate
-            if (rodada == 9) {
+            if (rodada == 9 && ganhador == false) {
                 // Mostrar uma mensagem de empate
-                alert("O jogo terminou em empate!");
-                // Reiniciar o jogo
-                window.location.reload();
+                mensagemAlerta("O jogo terminou em empate!");
             }
+        }
+        // Função para mostrar uma mensagem de vitoria ou empate
+        function mensagemAlerta(message) {
+            const escrever = document.createElement('div');
+            escrever.innerHTML = [
+                `<div class="mensagem">`,
+                `   <div>${message}</div>`,
+                '   <button class="close" onclick="window.location.reload();">Reiniciar</button>',
+                '</div>'
+            ].join('');
+            idDiv.append(escrever);
         }
 
     </script>
