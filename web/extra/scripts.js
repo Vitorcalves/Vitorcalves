@@ -3,6 +3,15 @@ var rodada = 0;
 const alert = document.getElementById('alert');
 const idForm = document.getElementById('form');
 const btn = document.querySelector("#send");
+let selectElement = document.getElementById('statusRegistro');
+let selectedValue = selectElement.value;
+console.log(selectedValue);
+
+selectElement.addEventListener('change', function() {
+    selectedValue = selectElement.value;
+    // Agora, a variável selectedValue será atualizada toda vez que uma nova opção for selecionada.
+    console.log(selectedValue);
+});
 
 class Jogador {
     constructor(nome, jogadas, vitorias) {

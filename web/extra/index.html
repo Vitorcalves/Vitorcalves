@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <script  src="scripts.js" defer></script>
-   
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
+
+
     <title>jogo da velha</title>
 </head>
+
 <body>
-    
+
 
     <div class="titulo">
         <h1>Jogo da Velha</h1>
     </div>
 
-
     <div id="form" class="form">
-        <form action="">
-            <input class="entrada" type="text" name="name" id="nome01" placeholder="Jogador X">
-            <input class="entrada" type="text" name="name" id="nome02" placeholder="Jogador O">
-            <input type="submit" id="send" value="Enviar">            
-        </form>
-        
+
+
+        <div>
+            <label for="jogsdorX">Nome do jogador que jogara com X</label>
+            <input type="text" name="name" id="nome01" autocomplete="off" placeholder="Jogador X" value="">
+        </div>
+
+        <div>
+            <label for="jogadorO">Nome do jogador que jogara com O</label>
+            <input type="text" name="name" id="nome02" autocomplete="off" placeholder="Jogador O" value="">
+        </div>
+
+        <div>
+            <input type="submit" id="send" value="Enviar">
+        </div>
+
+        <div>
+            <label for="tamanhoJogo">Status</label>
+            <select  name="tamanhoJogo" id="statusRegistro" autocomplete="off">
+                <option value="0" selected>3X3</option>
+                <option value="1">4X4</option>
+                <option value="2">5X5</option>
+            </select>
+        </div>
+
+
     </div>
-        
+
 
     <div class="jogadores">
         <table class="placar">
@@ -40,7 +61,7 @@
         </table>
     </div>
     <div class="container">
-        
+
         <table class="game">
             <tr>
                 <td class="superior esquerda"> <button class="campo" id="0" onclick="clique(this)"></button> </td>
@@ -61,4 +82,5 @@
     </div>
     <div id="alert"></div>
 </body>
+
 </html>
