@@ -3,15 +3,16 @@ var rodada = 0;
 const alert = document.getElementById('alert');
 const idForm = document.getElementById('form');
 const btn = document.querySelector("#send");
-let selectElement = document.getElementById('statusRegistro');
+let selectElement = document.getElementById('tabuleiro');
 let selectedValue = selectElement.value;
 console.log(selectedValue);
 
-selectElement.addEventListener('change', function() {
+selectElement.addEventListener('change', function(){
     selectedValue = selectElement.value;
-    // Agora, a variável selectedValue será atualizada toda vez que uma nova opção for selecionada.
     console.log(selectedValue);
 });
+
+
 
 class Jogador {
     constructor(nome, jogadas, vitorias) {
@@ -27,50 +28,49 @@ class Jogador {
     }
 }
 
-let X = new Jogador("X", [], 0);
-let O = new Jogador("O", [], 0);
-
 //function para pegar os nomes dos jogadores
-btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    const nome = document.querySelector("#nome01");
+function teste() {
+    const nome01 = document.querySelector("#nome01");
     const nome02 = document.querySelector("#nome02");
-    //verificar se os campos estão vazios
-    if(nome.value == "" || nome02.value == ""){
+    console.log(nome01.value);
+    console.log(nome02.value);
+    if(nome01.value == "" || nome02.value == ""){
         X.nome = "X";
         O.nome = "O";
         document.getElementById('jogador1').innerText = X["nome"];
         document.getElementById('jogador2').innerText = O["nome"];
         return;
     }   
-    X.nome = nome.value;
+    X.nome = nome01.value;
     O.nome = nome02.value;
     document.getElementById('jogador1').innerText = X["nome"];
     document.getElementById('jogador2').innerText = O["nome"];
-
-});
+}
 
 // Função para aceitar o clique do botão
 function clique(botao) {
-    let id = +botao.id;
+    botao = +botao;    
     // Verificar se o botão já foi clicado ou se já tem um ganhador
-    for (let i = 0; i < X.jogadas.length; i++) {
-        if (X.jogadas[i] == id || O.jogadas[i] == id || ganhador == true) {
+    console.log(botao);
+    for (let i = 0; i < rodada; i++) {
+        if (X.jogadas[i] == botao || O.jogadas[i] == botao || ganhador == true) {
             return;
         }
     }
     if (rodada == 0) {
-        document.getElementById(id).innerText = "X";
-        X.jogar(id);
+        document.getElementById(botao).innerText = "X";
+        X.jogar(botao);
         rodada++;
-    } else if (rodada % 2 == 0) {
-        document.getElementById(id).innerText = "X";
-        X.jogar(id);
+    }
+    else if (rodada % 2 == 0) {
+        document.getElementById(botao).innerText = "X";
+        X.jogar(botao);
         rodada++;
         verificarVencedor(X);
-    } else {
-        document.getElementById(id).innerText = "O";
-        O.jogar(id);
+    }
+    else {
+        document.getElementById(botao).innerText = "O";
+        O.jogar(botao);
         rodada++;
         verificarVencedor(O);
     }
@@ -78,6 +78,7 @@ function clique(botao) {
 // Função para verificar se houve um vencedor
 function verificarVencedor(jogador) {
     // Definir as possíveis combinações vencedoras
+    console.log(verificarVencedor);
     const comb = [
         [0, 1, 2],
         [3, 4, 5],
@@ -90,19 +91,25 @@ function verificarVencedor(jogador) {
     ];
     // Percorre as combinações e compara com os valores
     if (rodada >= 5){
+        console.log("comecei correr lista");
         if(jogador == X){
             correrLista(X.jogadas);
-        }else{
+        }
+        else{
             correrLista(O.jogadas);
         }
     }
     function correrLista(lista){
         for (let i = 0; i < comb.length; i++) {
+            console.log("entrei no for corre lista");
             if (lista.includes(comb[i][0]) && lista.includes(comb[i][1]) && lista.includes(comb[i][2])) {  
                 ganhador = true;
                 mensagemAlerta(`O Jogador ${jogador.nome} Venceu!`);
                 jogador.ganhar();
                 break;
+            }
+            else{
+                console.log("entrei no else");
             }
         }
     }
@@ -156,3 +163,7 @@ function mensagemAlerta(message) {
     ].join('');
     alert.append(escrever);
 }
+
+btn.addEventListener('click', teste);
+let X = new Jogador("X", [], 0);
+let O = new Jogador("O", [], 0);
