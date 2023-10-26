@@ -37,10 +37,10 @@
 
         <div>
             <label for="tamanhoJogo">Status</label>
-            <select  name="tamanhoJogo" id="tabuleiro" autocomplete="off">
-                <option value="0" selected>3X3</option>
-                <option value="1">4X4</option>
-                <option value="2">5X5</option>
+            <select  name="tamanhoJogo" id="tamanhoJogo" autocomplete="off">
+                <option value="3" selected>3X3</option>
+                <option value="4">4X4</option>
+                <option value="5">5X5</option>
             </select>
         </div>
 
@@ -62,22 +62,8 @@
     </div>
     <div class="container">
         
-        <table class="game">
-            <tr>
-                <td class="superior esquerda"> <button class="campo" id="0" onclick="clique(this.id)"></button> </td>
-                <td class="superior"> <button class="campo" id="1" onclick="clique(this.id)"></button> </td>
-                <td class="superior direita"> <button class="campo" id=2  onclick="clique(this.id)"></button> </td>
-            </tr>
-            <tr>
-                <td class="esquerda"> <button class="campo" id="3"  onclick="clique(this.id)"></button> </td>
-                <td class=""> <button class="campo" id="4"  onclick="clique(this.id)"></button> </td>
-                <td class="direita"> <button class="campo" id="5"  onclick="clique(this.id)"></button> </td>
-            </tr>
-            <tr>
-                <td class="inferior esquerda"> <button class="campo" id="6"  onclick="clique(this.id)"></button> </td>
-                <td class="inferior"> <button class="campo" id="7"  onclick="clique(this.id)"></button> </td>
-                <td class="inferior direita"> <button class="campo" id="8"  onclick="clique(this.id)"></button> </td>
-            </tr>
+        <table class="game" id="tabuleiro">
+            
         </table>
     </div>
     <div id="alert"></div>

@@ -2,31 +2,58 @@ var ganhador = false;
 var rodada = 0;
 const alert = document.getElementById('alert');
 const idForm = document.getElementById('form');
+const idTabuleiro = document.getElementById('tabuleiro');
 const btn = document.querySelector("#send");
-let selectElement = document.getElementById('tabuleiro');
+let selectElement = document.getElementById('tamanhoJogo');
 let selectedValue = selectElement.value;
+criarTabuleiro();
 console.log(selectedValue);
 
 selectElement.addEventListener('change', function(){
     selectedValue = selectElement.value;
+    // idTabuleiro.innerHTML = "";
+    rodada = 0;
+    ganhador = false;
+    criarTabuleiro();
     console.log(selectedValue);
 });
+function criarTabuleiro() {
+    idTabuleiro.innerHTML = '';
+    let tabela = document.createElement('table');
+    tabela.className = "game";
+    tabela.id = "tabuleiro";
+    idTabuleiro.appendChild(tabela);
+    let contador = 0;
+    for(let i = 0; i < selectedValue; i++){
+        let linha = document.createElement('tr');
+        tabela.appendChild(linha);
+        for(let j = 0; j < selectedValue; j++){
+            let celula = document.createElement('td');
+            linha.appendChild(celula);
+            let botao = document.createElement('button');
+            botao.className = "campo";
+            botao.id = i + '-' + j;
+            botao.setAttribute('onclick', `clique(this.id)`);
+            celula.appendChild(botao);
+        }
+    }
+}
 
+
+btn.addEventListener('click', teste);
 
 
 class Jogador {
-    constructor(nome, jogadas, vitorias) {
+    constructor(nome, vitorias) {
         this.nome = nome;
-        this.jogadas = jogadas;
         this.vitorias = vitorias;
     }
     ganhar(){
         this.vitorias++;
     }
-    jogar(jogada){
-        this.jogadas.push(jogada);
-    }
 }
+let X = new Jogador("X", [], 0);
+let O = new Jogador("O", [], 0);
 
 //function para pegar os nomes dos jogadores
 function teste() {
@@ -49,121 +76,47 @@ function teste() {
 
 // Função para aceitar o clique do botão
 function clique(botao) {
-    botao = +botao;    
+    let idBotao = botao.split('-');
+    let linha = idBotao[0];
+    let coluna = idBotao[1];    
     // Verificar se o botão já foi clicado ou se já tem um ganhador
-    console.log(botao);
-    for (let i = 0; i < rodada; i++) {
-        if (X.jogadas[i] == botao || O.jogadas[i] == botao || ganhador == true) {
-            return;
-        }
-    }
+    console.log(idBotao);
+    // for (let i = 0; i < rodada; i++) {
+    //     if (X.jogadas[i] == botao || O.jogadas[i] == botao || ganhador == true) {
+    //         return;
+    //     }
+    // }
     if (rodada == 0) {
         document.getElementById(botao).innerText = "X";
-        X.jogar(botao);
+        
         rodada++;
     }
     else if (rodada % 2 == 0) {
         document.getElementById(botao).innerText = "X";
-        X.jogar(botao);
         rodada++;
-        verificarVencedor(X);
+        // verificarVencedor(X);
     }
     else {
         document.getElementById(botao).innerText = "O";
-        O.jogar(botao);
+        // O.jogar(botao);
         rodada++;
-        verificarVencedor(O);
+        // verificarVencedor(O);
     }
 }
 // Função para verificar se houve um vencedor
-function verificarVencedor(jogador) {
-    // Definir as possíveis combinações vencedoras
-    console.log(verificarVencedor);
-    const comb = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-    // Percorre as combinações e compara com os valores
-    if (rodada >= 5){
-        console.log("comecei correr lista");
-        if(jogador == X){
-            correrLista(X.jogadas);
-        }
-        else{
-            correrLista(O.jogadas);
+const tabuleiroConferencia = () => {
+    let tabuleiro = [];
+    for(let i = 0; i < selectedValue; i++){
+        tabuleiro[i] = [];
+        for(let j = 0; j < selectedValue; j++){
+            tabuleiro[i][j] = ""
         }
     }
-    function correrLista(lista){
-        for (let i = 0; i < comb.length; i++) {
-            console.log("entrei no for corre lista");
-            if (lista.includes(comb[i][0]) && lista.includes(comb[i][1]) && lista.includes(comb[i][2])) {  
-                ganhador = true;
-                mensagemAlerta(`O Jogador ${jogador.nome} Venceu!`);
-                jogador.ganhar();
-                break;
-            }
-            else{
-                console.log("entrei no else");
-            }
-        }
-    }
-    
-    // Verificar se houve empate
-    if (rodada == 9 && ganhador == false) {
-        // Mostrar uma mensagem de empate
-        mensagemAlerta("O jogo terminou em empate!");
-    }
+    return tabuleiro;
 }
-// Função para reiniciar o jogo
-function novaRodada(){
-    rodada = 0;
-    ganhador = false;
-    X.jogadas = [];
-    O.jogadas = [];
-        document.getElementById('placar1').innerText = X.vitorias;
-        document.getElementById('placar2').innerText = O.vitorias;
-        alert.innerHTML = '';
-
-    for(let i = 0; i < 9; i++){
-        document.getElementById(i).innerText = "";
-    }
-}
-function reiniciar(){
-    rodada = 0;
-    ganhador = false;
-    X.jogadas = [];
-    O.jogadas = [];
-    X.vitorias = 0;
-    O.vitorias = 0;
-    document.getElementById('placar1').innerText = X.vitorias;
-    document.getElementById('placar2').innerText = O.vitorias;
-    alert.innerHTML = '';
-
-    for(let i = 0; i < 9; i++){
-        document.getElementById(i).innerText = "";
-    }
-}
-
-// Função para mostrar uma mensagem de vitoria ou empate
-function mensagemAlerta(message) {
-    const escrever = document.createElement('div');
-    escrever.innerHTML = [       
-        
-        '<div class="mensagem">',
-        `   <div>${message}</div>`,
-        '   <button class="restart" onclick="novaRodada();">Nova Rodada</button>',
-        '   <button class="close" onclick="reiniciar();">Reiniciar</button>',
-        '</div>'
-    ].join('');
-    alert.append(escrever);
-}
-
-btn.addEventListener('click', teste);
-let X = new Jogador("X", [], 0);
-let O = new Jogador("O", [], 0);
+console.log(tabuleiroConferencia());
+let test = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+];
