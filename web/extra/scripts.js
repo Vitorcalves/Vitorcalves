@@ -22,7 +22,7 @@ let O = {
 
 criarTabuleiro();
 btn.addEventListener('click', auterarNome);
-
+// Função para pegar o valor do select
 selectElement.addEventListener('change', function(){
     tamanhoJogo = selectElement.value;
     // idTabuleiro.innerHTML = "";
@@ -31,6 +31,7 @@ selectElement.addEventListener('change', function(){
     novaRodada();
     console.log(tamanhoJogo);
 });
+// Função para criar o tabuleiro
 function criarTabuleiro() {
     idTabuleiro.innerHTML = '';
     criarTabuleiroConferencia()
@@ -57,7 +58,6 @@ function criarTabuleiro() {
 function auterarNome() {
     const nome01 = document.querySelector("#nome01");
     const nome02 = document.querySelector("#nome02");
-
     if(nome01.value == "" || nome02.value == ""){
         X.nome = "X";
         O.nome = "O";
@@ -76,13 +76,13 @@ function clique(botao) {
     let linha = idBotao[0];
     let coluna = idBotao[1];    
     // Verificar se o botão já foi clicado ou se já tem um ganhador
-
     if (tabuleiroConferencia[linha][coluna] != "" || vencedor != "" ) {
         console.log(tabuleiroConferencia);
         console.log(vencedor);
         console.log(rodada);
         return;
     }
+    // Verificar se é a vez do X ou do O
     else if (rodada % 2 == 0) {
         document.getElementById(botao).innerText = "X";
         rodada++;
@@ -114,6 +114,7 @@ function verificarVencedor() {
 
     // Verificar linhas e colunas
     for (let i = 0; i < tamanhoJogo; i++) {
+        // Verificar linhas
         if (tabuleiroConferencia[i].every(cell => cell === tabuleiroConferencia[i][0] && cell !== "")) {
             vencedor = tabuleiroConferencia[i][0] === 'X' ? X : O;;
             vencedor.vitorias += 1;
@@ -128,7 +129,7 @@ function verificarVencedor() {
         }
         
     }
-    
+    // Verificar diagonal principal
     if (valorDiagonalPrincipal !== "") {
         let diagonalVence = true;
         for (let i = 1; i < tamanhoJogo; i++) {
@@ -143,6 +144,7 @@ function verificarVencedor() {
             vencedor.vitorias += 1;
         }
     }
+    // Verificar diagonal secundária
     if (valorDiagonalSecundaria !== "") {
         let diagonalVence = true;
         for (let i = 1; i < tamanhoJogo; i++) {
@@ -156,26 +158,28 @@ function verificarVencedor() {
             vencedor.vitorias += 1;
         }
     }
-
+    // Verificar se houve um vencedor
     if (vencedor) {
         console.log("Vencedor:", vencedor);
         mensagemVencedor(`O ganhador foi ${vencedor.nome}`);
         document.getElementById('placar1').innerText = X.vitorias;
         document.getElementById('placar2').innerText = O.vitorias;
     }
+    // Verificar se deu velha
         if (rodada == tamanhoJogo * tamanhoJogo && vencedor == "") {
         mensagemVencedor("O jogo deu velha");
         console.log("Deu velha");
     }
 
 }
-
+// Função para criar uma nova rodada
 function novaRodada(){
     rodada = 0;
     vencedor = "";
     criarTabuleiro();
     mensagemVitoria.innerHTML = '';
 }
+// Função para reiniciar o jogo
 function reiniciar(){
     rodada = 0;
     vencedor = "";
