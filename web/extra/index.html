@@ -17,56 +17,60 @@
     <div class="titulo">
         <h1>Jogo da Velha</h1>
     </div>
-
-    <div id="form" class="form">
-
-
-        <div>
-            <label for="jogsdorX">Nome do jogador que jogara com X</label>
-            <input type="text" name="name" id="nome01" autocomplete="off" placeholder="Jogador X" value="">
+    
+    <div class="info-container">
+        <div id="form" class="form">
+            <div>
+                <div><label for="jogsdorX">Nome do jogador que jogara com X</label></div>
+                <div><input type="text" name="name" id="nome01" autocomplete="off" placeholder="Jogador X" value=""></div>
+            </div>
+            <div>
+                <div><label for="jogadorO">Nome do jogador que jogara com O</label></div>
+                <div><input type="text" name="name" id="nome02" autocomplete="off" placeholder="Jogador O" value=""></div>
+            </div>
+            <div>
+                <input type="submit" id="send" value="Enviar">
+            </div>
+            <div>
+                <label for="tamanhoJogo">Tamanho Tabuleiro</label>
+                <select name="tamanhoJogo" id="tamanhoJogo" autocomplete="off">
+                    <option value="3" selected>3X3</option>
+                    <option value="4">4X4</option>
+                    <option value="5">5X5</option>
+                </select>
+            </div>
+            
+    
         </div>
-
-        <div>
-            <label for="jogadorO">Nome do jogador que jogara com O</label>
-            <input type="text" name="name" id="nome02" autocomplete="off" placeholder="Jogador O" value="">
-        </div>
-
-        <div>
-            <input type="submit" id="send" value="Enviar">
-        </div>
-
-        <div>
-            <label for="tamanhoJogo">Status</label>
-            <select  name="tamanhoJogo" id="tamanhoJogo" autocomplete="off">
-                <option value="3" selected>3X3</option>
-                <option value="4">4X4</option>
-                <option value="5">5X5</option>
-            </select>
-        </div>
-
-
+        
+        <div id="mensagemVitoria"></div>
+    
+    
+    
     </div>
+    
+    
+    <div class="game-container">
 
-
-    <div class="jogadores">
-        <table class="placar">
-            <tr>
-                <td id="jogador1">X</td>
-                <td id="jogador2">O</td>
-            </tr>
-            <tr>
-                <td class="jogador1" id="placar1">0</td>
-                <td class="jogador2" id="placar2">0</td>
-            </tr>
-        </table>
-    </div>
-    <div class="container">
+        <div class="jogadores">
+            <table class="placar">
+                <tr>
+                    <td id="jogador1">X</td>
+                    <td id="jogador2">O</td>
+                </tr>
+                <tr>
+                    <td class="jogador1" id="placar1">0</td>
+                    <td class="jogador2" id="placar2">0</td>
+                </tr>
+            </table>
+        </div>
+        
         
         <table class="game" id="tabuleiro">
             
         </table>
     </div>
-    <div id="alert"></div>
+    
 </body>
 
 </html>

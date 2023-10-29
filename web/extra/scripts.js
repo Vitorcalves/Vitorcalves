@@ -1,43 +1,48 @@
 let vencedor = "";
-var tabuleiroConferencia
+var tabuleiroConferencia;
 var rodada = 0;
-const alert = document.getElementById('alert');
+
+const mensagemVitoria = document.getElementById('mensagemVitoria');
 const idForm = document.getElementById('form');
 const idTabuleiro = document.getElementById('tabuleiro');
 const btn = document.querySelector("#send");
-let selectElement = document.getElementById('tamanhoJogo');
-let selectedValue = selectElement.value;
-criarTabuleiro();
+const selectElement = document.getElementById('tamanhoJogo');
+
+let tamanhoJogo = selectElement.value;
+
 let X = {
     nome: "X",
     vitorias: 0
 };
+
 let O = {
     nome: "O",
     vitorias: 0
 };
-console.log(selectedValue);
+
+criarTabuleiro();
+btn.addEventListener('click', auterarNome);
+
 selectElement.addEventListener('change', function(){
-    selectedValue = selectElement.value;
+    tamanhoJogo = selectElement.value;
     // idTabuleiro.innerHTML = "";
     rodada = 0;
     vencedor = "";
-    criarTabuleiro();
-    console.log(selectedValue);
+    novaRodada();
+    console.log(tamanhoJogo);
 });
 function criarTabuleiro() {
     idTabuleiro.innerHTML = '';
     criarTabuleiroConferencia()
-    console.log(tabuleiroConferencia);
     let tabela = document.createElement('table');
     tabela.className = "game";
     tabela.id = "tabuleiro";
     idTabuleiro.appendChild(tabela);
     let contador = 0;
-    for(let i = 0; i < selectedValue; i++){
+    for(let i = 0; i < tamanhoJogo; i++){
         let linha = document.createElement('tr');
         tabela.appendChild(linha);
-        for(let j = 0; j < selectedValue; j++){
+        for(let j = 0; j < tamanhoJogo; j++){
             let celula = document.createElement('td');
             linha.appendChild(celula);
             let botao = document.createElement('button');
@@ -48,13 +53,11 @@ function criarTabuleiro() {
         }
     }
 }
-btn.addEventListener('click', teste);
 //function para pegar os nomes dos jogadores
-function teste() {
+function auterarNome() {
     const nome01 = document.querySelector("#nome01");
     const nome02 = document.querySelector("#nome02");
-    console.log(nome01.value);
-    console.log(nome02.value);
+
     if(nome01.value == "" || nome02.value == ""){
         X.nome = "X";
         O.nome = "O";
@@ -73,11 +76,11 @@ function clique(botao) {
     let linha = idBotao[0];
     let coluna = idBotao[1];    
     // Verificar se o botão já foi clicado ou se já tem um ganhador
-    console.log(idBotao); 
+
     if (tabuleiroConferencia[linha][coluna] != "" || vencedor != "" ) {
-        console.log("entrou");
         console.log(tabuleiroConferencia);
         console.log(vencedor);
+        console.log(rodada);
         return;
     }
     else if (rodada % 2 == 0) {
@@ -96,21 +99,21 @@ function clique(botao) {
 // Função para verificar se houve um vencedor
 function criarTabuleiroConferencia()  {
     tabuleiroConferencia = [];
-    for(let i = 0; i < selectedValue; i++){
+    for(let i = 0; i < tamanhoJogo; i++){
         tabuleiroConferencia[i] = [];
-        for(let j = 0; j < selectedValue; j++){
+        for(let j = 0; j < tamanhoJogo; j++){
             tabuleiroConferencia[i][j] = ""
         }
     }
 }
+// Função para verificar se houve um vencedor
 function verificarVencedor() {
     
     let valorDiagonalPrincipal = tabuleiroConferencia[0][0];
-    let valorDiagonalSecundaria = tabuleiroConferencia[0][selectedValue- 1];
+    let valorDiagonalSecundaria = tabuleiroConferencia[0][tamanhoJogo- 1];
 
     // Verificar linhas e colunas
-    for (let i = 0; i < selectedValue; i++) {
-        // Verificar linhas
+    for (let i = 0; i < tamanhoJogo; i++) {
         if (tabuleiroConferencia[i].every(cell => cell === tabuleiroConferencia[i][0] && cell !== "")) {
             vencedor = tabuleiroConferencia[i][0] === 'X' ? X : O;;
             vencedor.vitorias += 1;
@@ -128,7 +131,7 @@ function verificarVencedor() {
     
     if (valorDiagonalPrincipal !== "") {
         let diagonalVence = true;
-        for (let i = 1; i < selectedValue; i++) {
+        for (let i = 1; i < tamanhoJogo; i++) {
             if (tabuleiroConferencia[i][i] !== valorDiagonalPrincipal) {
                 diagonalVence = false;
 
@@ -142,8 +145,8 @@ function verificarVencedor() {
     }
     if (valorDiagonalSecundaria !== "") {
         let diagonalVence = true;
-        for (let i = 1; i < selectedValue; i++) {
-            if (tabuleiroConferencia[i][selectedValue - i - 1] !== valorDiagonalSecundaria) {
+        for (let i = 1; i < tamanhoJogo; i++) {
+            if (tabuleiroConferencia[i][tamanhoJogo - i - 1] !== valorDiagonalSecundaria) {
                 diagonalVence = false;
                 break;
             }
@@ -156,18 +159,22 @@ function verificarVencedor() {
 
     if (vencedor) {
         console.log("Vencedor:", vencedor);
-        mensagemAlerta(`O ganhador foi ${vencedor.nome}`);
+        mensagemVencedor(`O ganhador foi ${vencedor.nome}`);
         document.getElementById('placar1').innerText = X.vitorias;
         document.getElementById('placar2').innerText = O.vitorias;
-    } else {
-        console.log("Nenhum vencedor ainda.");
     }
+        if (rodada == tamanhoJogo * tamanhoJogo && vencedor == "") {
+        mensagemVencedor("O jogo deu velha");
+        console.log("Deu velha");
+    }
+
 }
+
 function novaRodada(){
     rodada = 0;
     vencedor = "";
     criarTabuleiro();
-    alert.innerHTML = '';
+    mensagemVitoria.innerHTML = '';
 }
 function reiniciar(){
     rodada = 0;
@@ -178,20 +185,25 @@ function reiniciar(){
     document.getElementById('placar1').innerText = X.vitorias;
     document.getElementById('placar2').innerText = O.vitorias;
     
-    alert.innerHTML = '';
+    mensagemVitoria.innerHTML = '';
 }
 // Função para mostrar uma mensagem de vitoria ou empate
-function mensagemAlerta(message) {
-    const escrever = document.createElement('div');
-    escrever.innerHTML = [       
-        
-        '<div class="mensagem">',
-        `   <div>${message}</div>`,
-        '   <button class="restart" onclick="novaRodada();">Nova Rodada</button>',
-        '   <button class="close" onclick="reiniciar();">Reiniciar</button>',
-        '</div>'
-    ].join('');
-    console.log(O.vitorias);
-    console.log(X.vitorias);
-    alert.append(escrever);
+function mensagemVencedor(message) {
+    let escrever = document.createElement('div');
+    escrever.className = "mensagem";
+    escrever.innerText = message;
+
+    let botao = document.createElement('button');
+    botao.className = "restart";
+    botao.setAttribute('onclick', `novaRodada()`);
+    botao.innerText = "Nova Rodada";
+
+    let botao2 = document.createElement('button');
+    botao2.className = "stop";
+    botao2.setAttribute('onclick', `reiniciar()`);
+    botao2.innerText = "Reiniciar";
+
+    mensagemVitoria.appendChild(escrever);
+    mensagemVitoria.appendChild(botao);
+    mensagemVitoria.appendChild(botao2);
 }
