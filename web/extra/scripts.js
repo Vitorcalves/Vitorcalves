@@ -56,16 +56,16 @@ function teste() {
     console.log(nome01.value);
     console.log(nome02.value);
     if(nome01.value == "" || nome02.value == ""){
-        X[nome] = "X";
-        O[nome] = "O";
-        document.getElementById('jogador1').innerText = X[nome];
-        document.getElementById('jogador2').innerText = O[nome];
+        X.nome = "X";
+        O.nome = "O";
+        document.getElementById('jogador1').innerText = X.nome;
+        document.getElementById('jogador2').innerText = O.nome;
         return;
     }   
-    X[nome] = nome01.value;
-    O[nome] = nome02.value;
-    document.getElementById('jogador1').innerText = X[nome];
-    document.getElementById('jogador2').innerText = O[nome];
+    X.nome = nome01.value;
+    O.nome = nome02.value;
+    document.getElementById('jogador1').innerText = X.nome;
+    document.getElementById('jogador2').innerText = O.nome;
 }
 // Função para aceitar o clique do botão
 function clique(botao) {
@@ -157,9 +157,28 @@ function verificarVencedor() {
     if (vencedor) {
         console.log("Vencedor:", vencedor);
         mensagemAlerta(`O ganhador foi ${vencedor.nome}`);
+        document.getElementById('placar1').innerText = X.vitorias;
+        document.getElementById('placar2').innerText = O.vitorias;
     } else {
         console.log("Nenhum vencedor ainda.");
     }
+}
+function novaRodada(){
+    rodada = 0;
+    vencedor = "";
+    criarTabuleiro();
+    alert.innerHTML = '';
+}
+function reiniciar(){
+    rodada = 0;
+    vencedor = "";
+    criarTabuleiro();
+    X.vitorias = 0;
+    O.vitorias = 0;
+    document.getElementById('placar1').innerText = X.vitorias;
+    document.getElementById('placar2').innerText = O.vitorias;
+    
+    alert.innerHTML = '';
 }
 // Função para mostrar uma mensagem de vitoria ou empate
 function mensagemAlerta(message) {
