@@ -1,4 +1,4 @@
-var ganhador = false;
+let vencedor = "";
 var tabuleiroConferencia
 var rodada = 0;
 const alert = document.getElementById('alert');
@@ -8,12 +8,20 @@ const btn = document.querySelector("#send");
 let selectElement = document.getElementById('tamanhoJogo');
 let selectedValue = selectElement.value;
 criarTabuleiro();
+let X = {
+    nome: "X",
+    vitorias: 0
+};
+let O = {
+    nome: "O",
+    vitorias: 0
+};
 console.log(selectedValue);
 selectElement.addEventListener('change', function(){
     selectedValue = selectElement.value;
     // idTabuleiro.innerHTML = "";
     rodada = 0;
-    ganhador = false;
+    vencedor = "";
     criarTabuleiro();
     console.log(selectedValue);
 });
@@ -41,17 +49,6 @@ function criarTabuleiro() {
     }
 }
 btn.addEventListener('click', teste);
-class Jogador {
-    constructor(nome, vitorias) {
-        this.nome = nome;
-        this.vitorias = vitorias;
-    }
-    ganhar(){
-        this.vitorias++;
-    }
-}
-let X = new Jogador("X", 0);
-let O = new Jogador("O", 0);
 //function para pegar os nomes dos jogadores
 function teste() {
     const nome01 = document.querySelector("#nome01");
@@ -59,16 +56,16 @@ function teste() {
     console.log(nome01.value);
     console.log(nome02.value);
     if(nome01.value == "" || nome02.value == ""){
-        X.nome = "X";
-        O.nome = "O";
-        document.getElementById('jogador1').innerText = X["nome"];
-        document.getElementById('jogador2').innerText = O["nome"];
+        X[nome] = "X";
+        O[nome] = "O";
+        document.getElementById('jogador1').innerText = X[nome];
+        document.getElementById('jogador2').innerText = O[nome];
         return;
     }   
-    X.nome = nome01.value;
-    O.nome = nome02.value;
-    document.getElementById('jogador1').innerText = X["nome"];
-    document.getElementById('jogador2').innerText = O["nome"];
+    X[nome] = nome01.value;
+    O[nome] = nome02.value;
+    document.getElementById('jogador1').innerText = X[nome];
+    document.getElementById('jogador2').innerText = O[nome];
 }
 // Função para aceitar o clique do botão
 function clique(botao) {
@@ -77,10 +74,10 @@ function clique(botao) {
     let coluna = idBotao[1];    
     // Verificar se o botão já foi clicado ou se já tem um ganhador
     console.log(idBotao); 
-    if (tabuleiroConferencia[linha][coluna] != "" || ganhador == true) {
+    if (tabuleiroConferencia[linha][coluna] != "" || vencedor != "" ) {
         console.log("entrou");
         console.log(tabuleiroConferencia);
-        console.log(ganhador);
+        console.log(vencedor);
         return;
     }
     else if (rodada % 2 == 0) {
@@ -107,7 +104,7 @@ function criarTabuleiroConferencia()  {
     }
 }
 function verificarVencedor() {
-    let vencedor = "";
+    
     let valorDiagonalPrincipal = tabuleiroConferencia[0][0];
     let valorDiagonalSecundaria = tabuleiroConferencia[0][selectedValue- 1];
 
@@ -115,14 +112,15 @@ function verificarVencedor() {
     for (let i = 0; i < selectedValue; i++) {
         // Verificar linhas
         if (tabuleiroConferencia[i].every(cell => cell === tabuleiroConferencia[i][0] && cell !== "")) {
-            vencedor = tabuleiroConferencia[i][0];
-            
+            vencedor = tabuleiroConferencia[i][0] === 'X' ? X : O;;
+            vencedor.vitorias += 1;
             break;
         }
 
         // Verificar colunas
         if (tabuleiroConferencia.every(row => row[i] === tabuleiroConferencia[0][i] && row[i] !== "")) {
-            vencedor = tabuleiroConferencia[0][i];
+            vencedor = tabuleiroConferencia[0][i] === 'X' ? X : O;
+            vencedor.vitorias += 1;
             break;
         }
         
@@ -138,7 +136,8 @@ function verificarVencedor() {
             }
         }
         if (diagonalVence) {
-            vencedor = valorDiagonalPrincipal;
+            vencedor = valorDiagonalPrincipal === 'X' ? X : O;
+            vencedor.vitorias += 1;
         }
     }
     if (valorDiagonalSecundaria !== "") {
@@ -150,13 +149,14 @@ function verificarVencedor() {
             }
         }
         if (diagonalVence) {
-            vencedor = valorDiagonalSecundaria;
+            vencedor = valorDiagonalSecundaria === 'X' ? X : O;
+            vencedor.vitorias += 1;
         }
     }
 
     if (vencedor) {
         console.log("Vencedor:", vencedor);
-        mensagemAlerta(`O ganhador foi ${vencedor}`);
+        mensagemAlerta(`O ganhador foi ${vencedor.nome}`);
     } else {
         console.log("Nenhum vencedor ainda.");
     }
@@ -172,5 +172,7 @@ function mensagemAlerta(message) {
         '   <button class="close" onclick="reiniciar();">Reiniciar</button>',
         '</div>'
     ].join('');
+    console.log(O.vitorias);
+    console.log(X.vitorias);
     alert.append(escrever);
 }
