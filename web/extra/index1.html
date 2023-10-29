@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
+
+
+    <title>jogo da velha</title>
+</head>
+
+<body>
+
+
+    <div class="titulo">
+        <h1>Jogo da Velha</h1>
+    </div>
+
+    <div id="form" class="form">
+
+
+        <div>
+            <label for="jogsdorX">Nome do jogador que jogara com X</label>
+            <input type="text" name="name" id="nome01" autocomplete="off" placeholder="Jogador X" value="">
+        </div>
+
+        <div>
+            <label for="jogadorO">Nome do jogador que jogara com O</label>
+            <input type="text" name="name" id="nome02" autocomplete="off" placeholder="Jogador O" value="">
+        </div>
+
+        <div>
+            <input type="submit" id="send" value="Enviar">
+        </div>
+
+        <div>
+            <label for="tamanhoJogo">Status</label>
+            <select  name="tamanhoJogo" id="tamanhoJogo" autocomplete="off">
+                <option value="3" selected>3X3</option>
+                <option value="4">4X4</option>
+                <option value="5">5X5</option>
+            </select>
+        </div>
+
+
+    </div>
+
+
+    <div class="jogadores">
+        <table class="placar">
+            <tr>
+                <td id="jogador1">X</td>
+                <td id="jogador2">O</td>
+            </tr>
+            <tr>
+                <td class="jogador1" id="placar1">0</td>
+                <td class="jogador2" id="placar2">0</td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        
+        <table class="game" id="tabuleiro">
+            <tr>
+                <td > <button class="campo" id="0" onclick="clique(this.id)"></button> </td>
+                <td > <button class="campo" id="1" onclick="clique(this.id)"></button> </td>
+                <td > <button class="campo" id="2"  onclick="clique(this.id)"></button> </td>
+            </tr>
+            <tr>
+                <td > <button class="campo" id="3"  onclick="clique(this.id)"></button> </td>
+                <td > <button class="campo" id="4"  onclick="clique(this.id)"></button> </td>
+                <td > <button class="campo" id="5"  onclick="clique(this.id)"></button> </td>
+            </tr>
+            <tr>
+                <td > <button class="campo" id="6"  onclick="clique(this.id)"></button> </td>
+                <td > <button class="campo" id="7"  onclick="clique(this.id)"></button> </td>
+                <td > <button class="campo" id="8"  onclick="clique(this.id)"></button> </td>
+            </tr>
+        </table>
+    </div>
+    <div id="alert"></div>
+</body>
+
+</html>

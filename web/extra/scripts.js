@@ -1,4 +1,5 @@
 var ganhador = false;
+var tabuleiroConferencia
 var rodada = 0;
 const alert = document.getElementById('alert');
 const idForm = document.getElementById('form');
@@ -8,7 +9,6 @@ let selectElement = document.getElementById('tamanhoJogo');
 let selectedValue = selectElement.value;
 criarTabuleiro();
 console.log(selectedValue);
-
 selectElement.addEventListener('change', function(){
     selectedValue = selectElement.value;
     // idTabuleiro.innerHTML = "";
@@ -19,6 +19,8 @@ selectElement.addEventListener('change', function(){
 });
 function criarTabuleiro() {
     idTabuleiro.innerHTML = '';
+    criarTabuleiroConferencia()
+    console.log(tabuleiroConferencia);
     let tabela = document.createElement('table');
     tabela.className = "game";
     tabela.id = "tabuleiro";
@@ -38,11 +40,7 @@ function criarTabuleiro() {
         }
     }
 }
-
-
 btn.addEventListener('click', teste);
-
-
 class Jogador {
     constructor(nome, vitorias) {
         this.nome = nome;
@@ -52,9 +50,8 @@ class Jogador {
         this.vitorias++;
     }
 }
-let X = new Jogador("X", [], 0);
-let O = new Jogador("O", [], 0);
-
+let X = new Jogador("X", 0);
+let O = new Jogador("O", 0);
 //function para pegar os nomes dos jogadores
 function teste() {
     const nome01 = document.querySelector("#nome01");
@@ -73,50 +70,107 @@ function teste() {
     document.getElementById('jogador1').innerText = X["nome"];
     document.getElementById('jogador2').innerText = O["nome"];
 }
-
 // Função para aceitar o clique do botão
 function clique(botao) {
     let idBotao = botao.split('-');
     let linha = idBotao[0];
     let coluna = idBotao[1];    
     // Verificar se o botão já foi clicado ou se já tem um ganhador
-    console.log(idBotao);
-    // for (let i = 0; i < rodada; i++) {
-    //     if (X.jogadas[i] == botao || O.jogadas[i] == botao || ganhador == true) {
-    //         return;
-    //     }
-    // }
-    if (rodada == 0) {
-        document.getElementById(botao).innerText = "X";
-        
-        rodada++;
+    console.log(idBotao); 
+    if (tabuleiroConferencia[linha][coluna] != "" || ganhador == true) {
+        console.log("entrou");
+        console.log(tabuleiroConferencia);
+        console.log(ganhador);
+        return;
     }
     else if (rodada % 2 == 0) {
         document.getElementById(botao).innerText = "X";
         rodada++;
-        // verificarVencedor(X);
+        tabuleiroConferencia[linha][coluna] = "X";
+        verificarVencedor();
     }
     else {
         document.getElementById(botao).innerText = "O";
-        // O.jogar(botao);
+        tabuleiroConferencia[linha][coluna] = "O";
         rodada++;
-        // verificarVencedor(O);
+        verificarVencedor();
     }
 }
 // Função para verificar se houve um vencedor
-const tabuleiroConferencia = () => {
-    let tabuleiro = [];
+function criarTabuleiroConferencia()  {
+    tabuleiroConferencia = [];
     for(let i = 0; i < selectedValue; i++){
-        tabuleiro[i] = [];
+        tabuleiroConferencia[i] = [];
         for(let j = 0; j < selectedValue; j++){
-            tabuleiro[i][j] = ""
+            tabuleiroConferencia[i][j] = ""
         }
     }
-    return tabuleiro;
 }
-console.log(tabuleiroConferencia());
-let test = [
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""]
-];
+function verificarVencedor() {
+    let vencedor = "";
+    let valorDiagonalPrincipal = tabuleiroConferencia[0][0];
+    let valorDiagonalSecundaria = tabuleiroConferencia[0][selectedValue- 1];
+
+    // Verificar linhas e colunas
+    for (let i = 0; i < selectedValue; i++) {
+        // Verificar linhas
+        if (tabuleiroConferencia[i].every(cell => cell === tabuleiroConferencia[i][0] && cell !== "")) {
+            vencedor = tabuleiroConferencia[i][0];
+            
+            break;
+        }
+
+        // Verificar colunas
+        if (tabuleiroConferencia.every(row => row[i] === tabuleiroConferencia[0][i] && row[i] !== "")) {
+            vencedor = tabuleiroConferencia[0][i];
+            break;
+        }
+        
+    }
+    
+    if (valorDiagonalPrincipal !== "") {
+        let diagonalVence = true;
+        for (let i = 1; i < selectedValue; i++) {
+            if (tabuleiroConferencia[i][i] !== valorDiagonalPrincipal) {
+                diagonalVence = false;
+
+                break;
+            }
+        }
+        if (diagonalVence) {
+            vencedor = valorDiagonalPrincipal;
+        }
+    }
+    if (valorDiagonalSecundaria !== "") {
+        let diagonalVence = true;
+        for (let i = 1; i < selectedValue; i++) {
+            if (tabuleiroConferencia[i][selectedValue - i - 1] !== valorDiagonalSecundaria) {
+                diagonalVence = false;
+                break;
+            }
+        }
+        if (diagonalVence) {
+            vencedor = valorDiagonalSecundaria;
+        }
+    }
+
+    if (vencedor) {
+        console.log("Vencedor:", vencedor);
+        mensagemAlerta(`O ganhador foi ${vencedor}`);
+    } else {
+        console.log("Nenhum vencedor ainda.");
+    }
+}
+// Função para mostrar uma mensagem de vitoria ou empate
+function mensagemAlerta(message) {
+    const escrever = document.createElement('div');
+    escrever.innerHTML = [       
+        
+        '<div class="mensagem">',
+        `   <div>${message}</div>`,
+        '   <button class="restart" onclick="novaRodada();">Nova Rodada</button>',
+        '   <button class="close" onclick="reiniciar();">Reiniciar</button>',
+        '</div>'
+    ].join('');
+    alert.append(escrever);
+}
