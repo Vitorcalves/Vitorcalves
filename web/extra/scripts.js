@@ -19,20 +19,23 @@ let O = {
     nome: "O",
     vitorias: 0
 };
-
 criarTabuleiro();
 btn.addEventListener('click', auterarNome);
 // Função para pegar o valor do select
 selectElement.addEventListener('change', function(){
     tamanhoJogo = selectElement.value;
+    novaRodada();
     // idTabuleiro.innerHTML = "";
     rodada = 0;
     vencedor = "";
-    novaRodada();
     console.log(tamanhoJogo);
 });
 // Função para criar o tabuleiro
 function criarTabuleiro() {
+    if (tamanhoJogo < 3 || tamanhoJogo > 10) {
+        alert("O jogo só pode ser criado com um tamanho entre 3 e 10");
+        return;
+    }
     idTabuleiro.innerHTML = '';
     criarTabuleiroConferencia()
     let tabela = document.createElement('table');
@@ -174,9 +177,9 @@ function verificarVencedor() {
 }
 // Função para criar uma nova rodada
 function novaRodada(){
+    criarTabuleiro();
     rodada = 0;
     vencedor = "";
-    criarTabuleiro();
     mensagemVitoria.innerHTML = '';
 }
 // Função para reiniciar o jogo
