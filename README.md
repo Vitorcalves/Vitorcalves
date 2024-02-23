@@ -10,6 +10,9 @@
 	- Redes
 	- JavaScript
 	- HTML
+ 	- Vue.js
+  	- MySQL
+  	- PostgreSQL  
 
 - 📫 E-mail para contato: vitorcunhaalves@live.com
 
