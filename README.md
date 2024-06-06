@@ -4,10 +4,10 @@
 
 - tenho conhecimentos em:
 	- Git
- 	- PHP
 	- Docker  
 	- Python
-	- Redes
+ 	- PHP
+	- Laravel
 	- JavaScript
 	- HTML
  	- Vue.js
